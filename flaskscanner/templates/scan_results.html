@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="content-section">
+		<form method="POST" action="">
+			<fieldset class="form-group">				
+				<legend>Results of Scan</legend>
+				<div class="border-top pt-3">
+					<table>
+						<tr class="table-row">
+							<th class="table-header">Timestamp of Scan&emsp;</th>
+							<th class="table-header">Open Ports on IP&emsp;</th>
+						</tr>
+						<tr class="table-row">
+							<td class="table-cell">{{ timestamp_str }}&emsp;</td>
+							<td class="table-cell">{{ openports_str }}&emsp;</td>
+						</tr>
+					</table>
+				</div>
+				<br>
+				{% if data %}	
+					<div class="border-top pt-3">
+						<legend class="border-bottom mb-4">State Changes Since Last Scan</legend>
+						{% if closed_ports == newly_opened_ports %}					
+							<code style="color: blue">&emsp;NO CHANGE</code>
+						{% else %}
+							<table>
+								<tr class="table-row">
+									<th class="table-header">PORT NUMBER&emsp;</th>
+									<th class="table-header">CHANGED STATES&emsp;</th>
+								</tr>
+								{% for port in closed_ports %}
+									<tr class="table-row">
+										{% for state in port %}
+											<td><code style="color: red">&emsp;{{state}}</code></td>
+										{% endfor %}
+									</tr>
+								{% endfor %}
+								{% for port in newly_opened_ports %}
+									<tr class="table-row">
+										{% for state in port %}
+											<td><code style="color: green">&emsp;{{state}}</code></td>
+										{% endfor %}
+									</tr>
+								{% endfor %}
+							</table>
+						{% endif %}
+					</div>
+					<br>
+					<div class="border-top pt-3">
+						<legend class="border-bottom mb-4">Scan History for {{target_ip}}</legend>
+						<table>
+							<tr class="table-row">
+								{% for heading in headings %}
+									<th class="table-header">{{ heading }}&emsp;</th>
+								{% endfor %}
+							</tr>
+							{% for row in data %}
+								<tr class="table-row">
+									{% for cell in row %}
+										<td class="table-cell">{{ cell }}&emsp;</td>
+									{% endfor %}
+								</tr>
+							{% endfor %}
+						</table>
+					</div>
+				{% else %}
+					<legend class="border-bottom mb-4">Scan History for {{target_ip}}</legend>
+					<code style="color: blue">&emsp;NO PAST SCANS</code>
+				{% endif %}
+			</fieldset>
+		</form>
+	</div>
+{% endblock content %}

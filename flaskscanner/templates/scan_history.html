@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="content-section">
+		<form method="POST" action="">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Scan History</legend>
+				<small>
+				Has this IP been scanned before? <i><u>(Please enter IP Address only)</u></i>
+				</small>
+				<div class="form-group">
+					{% if form.ipAddr_to_query.errors %}
+						{{ form.ipAddr_to_query.label(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.ipAddr_to_query.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.ipAddr_to_query(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+			</fieldset>
+			<div class="form-group">
+				{{ form.submit(class="btn btn-outline-info") }}
+			</div>
+		</form>
+	</div>
+	{% if num_scans_done_on_ip > 0 %}
+		<div class="border-top pt-3">
+			<legend class="border-bottom mb-4">Scan History for {{form.ipAddr_to_query.data}}</legend>
+			<table>
+				<tr class="table-row">
+					{% for heading in headings %}
+						<th class="table-header">{{ heading }}&emsp;</th>
+					{% endfor %}
+				</tr>
+				{% for row in scans_history_for_ip %}
+					<tr class="table-row">
+						{% for cell in row %}
+							<td class="table-cell">{{ cell }}&emsp;</td>
+						{% endfor %}
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	{% endif %}
+	<div class="border-top pt-3">
+		<small class="text-muted">
+			Wish to scan an IP Address for Open Ports? <a class="ml-2" href=" {{ url_for('scanner_home_page') }}">Scan IP</a>
+		</small>		
+	</div>
+{% endblock content %}
