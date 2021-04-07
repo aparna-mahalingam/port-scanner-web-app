@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="content-section">
+		<form method="POST" action="">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">				
+				<h1>Welcome to the Python Port Scanner!</h1>
+				<br>
+				<legend class="border-bottom mb-4">Scan a Host for Open Ports</legend>
+				<div class="form-group">
+					{{ form.target_ipAddr.label(class="form-control-label") }}
+
+					{% if form.target_ipAddr.errors %}
+						{{ form.target_ipAddr.label(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.target_ipAddr.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.target_ipAddr(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+			</fieldset>
+			<div class="form-group">
+				{{ form.submit(class="btn btn-outline-info") }}
+			</div>
+		</form>
+	</div>
+	<div class="border-top pt-3">
+		<small class="text-muted">
+			Wish to scan another host? <a class="ml-2" href=" {{ url_for('scanner_home_page') }}">Scan Host</a>
+		</small>	
+	</div>
+{% endblock content %}
