@@ -12,4 +12,4 @@ class IPScanDetails(db.Model):
 	open_ports = db.Column(db.Text, nullable=False)
 
 	def __repr__(self):
-		return f"ScanResult('{self.ip_address}', '{self.timestamp}', '{
+		return f"ScanResult('{self.ip_address}', '{self.timestamp}', '{self.open_ports}')"
