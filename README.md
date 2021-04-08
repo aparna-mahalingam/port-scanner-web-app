@@ -80,7 +80,7 @@ Or on Windows cmd::
 
 OR WITHOUT ENVIRONMENT VARIABLES::
 
-    # cd port-scan-web-app 
+    # from still within the port-scanner-web-app directory
     $ python run.py
     
 
