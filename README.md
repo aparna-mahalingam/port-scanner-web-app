@@ -66,18 +66,18 @@ Run
 
 _WITH_ ENVIRONMENT VARIABLES:
 
-In the terminal::
-
+* In the terminal
+```
     $ export FLASK_APP=flaskscanner
     $ export FLASK_ENV=development
     $ flask run
-
-Or on Windows cmd::
-
+```
+* Or on Windows cmd
+```
     > set FLASK_APP=flaskscanner
     > set FLASK_ENV=development
     > flask run
-
+```
 OR WITHOUT ENVIRONMENT VARIABLES::
 
     # from still within the port-scanner-web-app directory
