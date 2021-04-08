@@ -30,7 +30,7 @@ Instructions to run this project:
 Install
 -------
 
-    # clone the repository (or download the zip)
+    # clone the repository (or download the zip and save it as "port-scanner-web-app.zip")
     $ git clone https://github.com/aparna-mahalingam/port-scanner-web-app.git
     $ cd port-scanner-web-app
 
