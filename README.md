@@ -64,6 +64,10 @@ Install all requirements from package-list.txt:
 Run
 ---
 
+_WITH_ ENVIRONMENT VARIABLES:
+
+In the terminal::
+
     $ export FLASK_APP=flaskscanner
     $ export FLASK_ENV=development
     $ flask run
@@ -73,5 +77,11 @@ Or on Windows cmd::
     > set FLASK_APP=flaskscanner
     > set FLASK_ENV=development
     > flask run
+
+OR WITHOUT ENVIRONMENT VARIABLES::
+
+    # cd port-scan-web-app 
+    $ python run.py
+    
 
 Open http://127.0.0.1:5000 in a browser.
