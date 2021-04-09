@@ -32,6 +32,7 @@ Install
 
     # clone the repository (or download the zip and save it as "port-scanner-web-app.zip")
     $ git clone https://github.com/aparna-mahalingam/port-scanner-web-app.git
+    # navigate to port-scanner-web-app directory
     $ cd port-scanner-web-app
 
 Create a virtualenv and activate it:
@@ -41,25 +42,27 @@ Create a virtualenv and activate it:
     $ python3 -m venv venv
     $ . venv/bin/activate
 ```
-* Or conda
+* OR conda
 ```
     $ conda create --name venv
     $ conda activate venv
 ```
-* Or on Windows cmd
+* OR on Windows cmd
 ```
     $ py -3 -m venv venv
     $ venv\Scripts\activate.bat
 ```
-Install all requirements from package-list.txt:
+Install the following requirements:
 
 * Using pip
 ```
-    $ pip install -r package-list.txt
+    $ pip install flask
+    $ pip install flask-sqlalchemy
 ```
-* Or conda
+* OR conda
 ```
-    $ conda install -n venv --file package-list.txt
+    $ conda install flask
+    $ conda install flask-sqlalchemy
 ```
 Run
 ---
@@ -72,7 +75,7 @@ _WITH_ ENVIRONMENT VARIABLES:
     $ export FLASK_ENV=development
     $ flask run
 ```
-* Or on Windows cmd
+* OR on Windows cmd
 ```
     > set FLASK_APP=flaskscanner
     > set FLASK_ENV=development
@@ -80,7 +83,7 @@ _WITH_ ENVIRONMENT VARIABLES:
 ```
 OR WITHOUT ENVIRONMENT VARIABLES::
 
-    # from still within the port-scanner-web-app directory
+    # still from within the port-scanner-web-app directory
     $ python run.py
     
 
