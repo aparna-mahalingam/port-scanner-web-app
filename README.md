@@ -30,10 +30,12 @@ Instructions to run this project:
 Install
 -------
 
-    # clone the repository (or download the zip and save it as "port-scanner-web-app.zip")
+    # clone the repository and navigate to the port-scanner-web-app directory
     $ git clone https://github.com/aparna-mahalingam/port-scanner-web-app.git
-    # navigate to port-scanner-web-app directory
     $ cd port-scanner-web-app
+    
+    # OR download the Zip and navigate to the port-scanner-web-app-main directory
+    $ cd port-scanner-web-app-main
 
 Create a virtualenv and activate it:
 
@@ -58,11 +60,13 @@ Install the following requirements:
 ```
     $ pip install flask
     $ pip install flask-sqlalchemy
+    $ pip install flask-wtf
 ```
 * OR conda
 ```
     $ conda install flask
     $ conda install flask-sqlalchemy
+    $ conda install flask-wtf
 ```
 Run
 ---
